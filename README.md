@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 - you have to setup your own api keys to make the code work.
 
-Create a `.env` file in the project root:
+Create a `.env` file or use the one in the project root:
 
 ```env
 # Pick ONE of the following:
@@ -59,7 +59,7 @@ if want to Test using GUI use command below :
 ```bash
 streamlit run agent.py
 ```
-this directory have one **agent.py** file and a **main.py** file both the files have almost same code the only difference is that **agent.py** have the GUI code using **streamlit** library. 
+- this directory have one **agent.py** file and a **main.py** file both the files have almost same code the only difference is that **agent.py** have the GUI code using **streamlit** library. 
 ---
 
 ## 💬 Sample Conversation
@@ -198,7 +198,7 @@ autostream-agent/
 | LLM | Gemini 2.0 Flash / GPT-4o-mini / Claude Haiku / openai/gpt-oss-120b | 
 | RAG | Custom JSON knowledge base + keyword retrieval |
 | State Management | LangGraph `StateGraph` + `TypedDict` |
-| Language | Python 3.9+ | Streamlit |
+| Language | Python 3.9+ | 
 
 ---
 
