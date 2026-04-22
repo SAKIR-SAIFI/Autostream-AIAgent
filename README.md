@@ -11,8 +11,8 @@ Built as part of the **ServiceHive / Inflx Machine Learning Intern Assignment**.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/autostream-agent.git
-cd autostream-agent
+git clone https://github.com/SAKIR-SAIFI/Autostream-AIAgent.git
+cd Autostream-AIAgent
 ```
 
 ### 2. Create and activate a virtual environment
@@ -35,21 +35,29 @@ Create a `.env` file in the project root:
 
 ```env
 # Pick ONE of the following:
-GOOGLE_API_KEY=your_gemini_api_key_here       # Recommended (free tier)
+# GOOGLE_API_KEY=your_gemini_api_key_here       
 # OPENAI_API_KEY=your_openai_api_key_here
 # ANTHROPIC_API_KEY=your_anthropic_api_key_here
+# GROQ_API_KEY=your_groq_api_key_here    # Recommended (free tier)
 ```
-
-Get a **free** Gemini API key at: https://aistudio.google.com/app/apikey
 
 > The agent auto-detects which key is present and picks the right LLM.
 
 ### 5. Run the agent
 
+As it is assgnment and dummy knowledge base is small so the vector database is created everytime these below commands are executed. 
+
+if you want to test only on the terminal use this :
+
 ```bash
-python agent.py
+python main.py
 ```
 
+if want to Test using GUI use command below :
+```bash
+streamlit run agent.py
+```
+this directory have one **agent.py** file and a **main.py** file both the files have almost same code the only difference is that **agent.py** have the GUI code using **streamlit** library. 
 ---
 
 ## 💬 Sample Conversation
@@ -150,10 +158,18 @@ Meta Send Message API (reply to user)
 
 ```
 autostream-agent/
-├── agent.py              # Main LangGraph agent (all nodes + graph)
+├── main.py               # Main LangGraph agent without GUI
+├── agent.py              # Main LangGraph agent with GUI
+├── graph.py              # Contains Graph
+├── llm.py                # contains LLm logic
+├── rag.py                # Loads and retrieves information from Knowledge base
+├── nodes.py              # Contains all the nodes 
+├── router.py             # routes the agent after collecting information to lead capturing 
+├── state.py              # manages all the states in the agent
+├── tools.py              # contains the mock lead capture tool
 ├── knowledge_base.json   # RAG knowledge base (pricing, policies, features)
 ├── requirements.txt      # Python dependencies
-├── .env.example          # API key template
+├── .env                  # API key template
 └── README.md             # This file
 ```
 
@@ -163,9 +179,12 @@ autostream-agent/
 
 | Variable | Description |
 |---|---|
-| `GOOGLE_API_KEY` | Gemini 1.5 Flash API key (recommended, free) |
+| `GROQ_API_KEY` | Groq API key (recommended, free) |
+| `GOOGLE_API_KEY` | Gemini 1.5 Flash API key (alternative) |
 | `OPENAI_API_KEY` | GPT-4o-mini API key (alternative) |
 | `ANTHROPIC_API_KEY` | Claude Haiku API key (alternative) |
+
+
 
 ---
 
@@ -174,7 +193,7 @@ autostream-agent/
 | Layer | Technology |
 |---|---|
 | Agent Framework | LangGraph 0.2+ |
-| LLM | Gemini 1.5 Flash / GPT-4o-mini / Claude Haiku |
+| LLM | Gemini 2.0 Flash / GPT-4o-mini / Claude Haiku / openai/gpt-oss-120b | 
 | RAG | Custom JSON knowledge base + keyword retrieval |
 | State Management | LangGraph `StateGraph` + `TypedDict` |
 | Language | Python 3.9+ |
