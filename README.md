@@ -31,6 +31,8 @@ pip install -r requirements.txt
 
 ### 4. Set your API key
 
+- you have to setup your own api keys to make the code work.
+
 Create a `.env` file in the project root:
 
 ```env
@@ -196,7 +198,7 @@ autostream-agent/
 | LLM | Gemini 2.0 Flash / GPT-4o-mini / Claude Haiku / openai/gpt-oss-120b | 
 | RAG | Custom JSON knowledge base + keyword retrieval |
 | State Management | LangGraph `StateGraph` + `TypedDict` |
-| Language | Python 3.9+ |
+| Language | Python 3.9+ | Streamlit |
 
 ---
 
